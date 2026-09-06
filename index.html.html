@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INI WEB ADE</title>
+    <style>
+        /* --- STYLE CSS --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #4a90e2;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4a90e2;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.1s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background-color: #2ecc71;
+        }
+
+        .btn-secondary:hover {
+            background-color: #27ae60;
+        }
+
+        #greeting {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            min-height: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- STRUKTUR HTML --- -->
+    <div class="container">
+        <h1 id="main-title">INI WEB ADE</h1>
+        <p>Welcome ges ini adalah web pertama gw!</p>
+        
+        <div class="input-group">
+            <input type="text" id="name-input" placeholder="Masukin nama lu disini...">
+        </div>
+
+        <button id="greet-btn">Kirim Nama</button>
+        <button id="color-btn" class="btn-secondary">Ubah Warna BG</button>
+
+        <div id="greeting"></div>
+    </div>
+
+    <!-- --- JAVASCRIPT --- -->
+    <script>
+        // Mengambil elemen HTML menggunakan DOM
+        const greetBtn = document.getElementById('greet-btn');
+        const colorBtn = document.getElementById('color-btn');
+        const nameInput = document.getElementById('name-input');
+        const greetingDisplay = document.getElementById('greeting');
+
+        // Fitur 1: Menyapa Pengunjung
+        greetBtn.addEventListener('click', function() {
+            const name = nameInput.value.trim();
+            if (name !== "") {
+                greetingDisplay.textContent = `Halo ${name}, salam kenal dari Ade! 👋`;
+                nameInput.value = ""; // Mengosongkan input setelah diklik
+            } else {
+                greetingDisplay.textContent = "Isi nama dulu woyy! 😊";
+            }
+        });
+
+        // Fitur 2: Mengubah Warna Latar Belakang Acak
+        colorBtn.addEventListener('click', function() {
+            const colors = ['#f0f2f5', '#ffeaa7', '#fab1a0', '#74b9ff', '#a29bfe', '#81ecec'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        });
+    </script>
+</body>
+</html>
